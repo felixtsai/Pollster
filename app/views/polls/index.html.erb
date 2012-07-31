@@ -1,0 +1,22 @@
+<h1>Pollster</h1>
+<h2>Polls</h2>
+<table>
+  <tr>
+    <th>Polls</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @polls.each do |poll| %>
+<tr>
+  <td><%= link_to poll.name, poll %>
+
+</tr>
+<% end %>
+
+</table>
+
+
+<p>Create a poll!
+    <%= button_to "Create Poll", {:action => "new"}, :method => :get %> </p>

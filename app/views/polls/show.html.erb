@@ -1,0 +1,10 @@
+<h1>Pollster</h1>
+<h2>Poll :
+  <%= @poll.name %> </h2>
+<p id="notice"><%= notice %></p>
+
+<p>
+  Send this link out to the users of your poll:
+  <%= "/polls/#{@poll.id}" %>
+
+</p>
