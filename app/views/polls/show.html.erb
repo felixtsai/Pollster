@@ -11,9 +11,8 @@
 
   <% @poll.questions.each do |question| %>
     <tr>
-      <td>Test<td>
       <td><%= question.question %></td>
-      <td><%= link_to "Edit", edit_poll_question_path(question.id) %></td>
+      <td><%= link_to "Edit", edit_poll_question_path(params[:questions => {:id => question.id}]) %></td>
     </tr>
 
   <% end %>

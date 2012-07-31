@@ -1,12 +1,13 @@
 class PollsController < ApplicationController
+
+
   def index
     @polls = Poll.all
   end
 
   def create
     @poll = Poll.new(params[:poll])
-    @poll.edit_url = @poll.generate_edit_url
-
+    
     if @poll.save
       redirect_to poll_path(@poll.id), :notice => "Your url to edit this poll is polls/#{@poll.edit_url}"
     end
