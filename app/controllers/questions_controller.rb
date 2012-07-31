@@ -18,15 +18,34 @@ class QuestionsController < ApplicationController
   end
 
   def edit
+    @poll = Poll.find(params[:poll_id])
     @question = Question.find(params[:id])
   end
 
   def update
+    @poll = Poll.find(params[:poll_id])
     @question = Question.find(params[:id])
-    @question.update_attributes(params[:questions])
-    @poll = Poll.find(@question.poll.id)
 
-    redirect_to poll_path(@poll.id)
+  respond_to do |format|
+    if @question.update_attributes(params[:question])
+        format.html {redirect_to @poll, notice: "Question was updated."}
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @link.errors, status: :unprocessable_entity }
+      end #end if
+    end #end respond
+  end #end update
+
+  def destroy
+    @poll = Poll.find(params[:poll_id])
+    @question = Question.find(params[:id])
+    @question.destroy
+
+    respond_to do |format|
+      format.html { redirect_to links_url }
+      format.json { head :no_content }
+    end
 
   end
 

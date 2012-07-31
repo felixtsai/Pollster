@@ -3,11 +3,11 @@ class Poll < ActiveRecord::Base
 
   has_many :questions
 
-  before_create :generate_edit_url   
-    
+  before_create :generate_edit_url
+
 
   def generate_edit_url
-    self.edit_url = SecureRandom.base64
+    self.edit_url = SecureRandom.urlsafe_base64
   end
 
   def self.find(input)
