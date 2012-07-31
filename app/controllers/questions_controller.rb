@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
     @question.destroy
 
     respond_to do |format|
-      format.html { redirect_to links_url }
+      format.html { redirect_to poll_path(@poll) }
       format.json { head :no_content }
     end
 

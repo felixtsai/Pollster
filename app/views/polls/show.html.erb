@@ -13,7 +13,7 @@
     <tr>
       <td><%= question.question %></td>
       <td><%= link_to "Edit", edit_poll_question_path(@poll, question) %></td>
-      <td><%= link_to "Delete", polls_path(@poll, question), :method => :delete %>
+      <td><%= link_to "Delete", poll_question_path(@poll, question), :method => :delete %>
     </tr>
 
   <% end %>
