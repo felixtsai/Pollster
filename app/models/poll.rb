@@ -1,6 +1,8 @@
 class Poll < ActiveRecord::Base
   attr_accessible :edit_url, :name, :poll_url, :id
 
+  has_many :questions
+
   def generate_edit_url
     @edit_url = SecureRandom.base64
   end

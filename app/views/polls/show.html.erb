@@ -1,7 +1,30 @@
 <h1>Pollster</h1>
-<h2>Poll :
+<h2>Poll:
   <%= @poll.name %> </h2>
 <p id="notice"><%= notice %></p>
+
+<p>
+<table>
+  <tr>
+    <th>Questions</th>
+  </tr>
+
+  <% @poll.questions.each do |question| %>
+    <tr>
+      <td>Test<td>
+      <td><%= question.question %></td>
+      <td><%= link_to "Edit", edit_poll_question_path(question.id) %></td>
+    </tr>
+
+  <% end %>
+
+</table>
+</p>
+
+<p>
+  <%= render :partial => "questions/questions" %>
+</p>
+
 
 <p>
   Send this link out to the users of your poll:

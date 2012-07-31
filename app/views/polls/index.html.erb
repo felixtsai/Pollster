@@ -10,7 +10,7 @@
 
 <% @polls.each do |poll| %>
 <tr>
-  <td><%= link_to poll.name, poll %>
+  <td><%= link_to poll.name, poll_path("#{poll.edit_url}") %>
 
 </tr>
 <% end %>

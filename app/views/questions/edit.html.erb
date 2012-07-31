@@ -1,0 +1,13 @@
+<h1>Editing Question</h1>
+
+<%= form_for edit_poll_question_path do |f| %>
+
+
+  <div class="field">
+    <%= f.label :question %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

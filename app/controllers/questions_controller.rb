@@ -1,18 +1,33 @@
 class QuestionsController < ApplicationController
 
-def index
-end
+  def index
+    @questions = Question.all
+  end
 
-def new
-end
+  def new
+    @question = Question.new
+  end
 
-def show
-end
+  def create
+    @question = Question.new(params[:question])
+    @question.poll_id = params[:poll_id]
+    @question.save
+    @poll = Poll.find(@question.poll.id)
 
-def update
-end
+    redirect_to poll_path(@poll.id)
+  end
 
-def destroy
-end
+  def edit
+    @question = Question.find(params[:id])
+  end
 
-end
+  def update
+    @question = Question.find(params[:id])
+    @question.update_attributes(params[:questions])
+    @poll = Poll.find(@question.poll.id)
+
+    redirect_to poll_path(@poll.id)
+
+  end
+
+end #end QuestionsController

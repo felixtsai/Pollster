@@ -8,7 +8,7 @@ class PollsController < ApplicationController
     @poll.edit_url = @poll.generate_edit_url
 
     if @poll.save
-      redirect_to poll_path(@poll.edit_url), :notice => "Your url to edit this poll is polls/#{@poll.edit_url}"
+      redirect_to poll_path(@poll.id), :notice => "Your url to edit this poll is polls/#{@poll.edit_url}"
     end
   end
 
@@ -17,7 +17,7 @@ class PollsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @link }
+      format.json { render json: @poll }
     end
   end
 
@@ -25,7 +25,14 @@ class PollsController < ApplicationController
   end
 
   def show
-    @poll = Poll.find_by_edit_url(params[:id])
+    @poll = Poll.find(params[:id])
+    @question = Question.new
+    @questions = Question.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @poll}
+    end
   end
 
   def update

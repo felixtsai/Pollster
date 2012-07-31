@@ -1,0 +1,14 @@
+
+
+<br><br>
+  <%= form_for [@poll, @question] do |f| %>
+
+    <div class="field">
+      <%= f.label :question %><br>
+      <%= f.text_field :question %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit%>
+    </div>
+  <% end %>
