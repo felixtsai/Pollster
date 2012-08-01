@@ -1,5 +1,17 @@
 Pollster::Application.routes.draw do
 
+  get "responses/show"
+
+  get "responses/index"
+
+  get "responses/new"
+
+  get "responses/edit"
+
+  get "responses/update"
+
+  get "responses/destroy"
+
 resources :polls do
   resources :questions
 end

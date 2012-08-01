@@ -2,6 +2,8 @@ class Poll < ActiveRecord::Base
   attr_accessible :edit_url, :name, :poll_url, :id
 
   has_many :questions
+  has_many :answers, :through => :questions
+  has_many :responses, :through => :questions
 
   before_create :generate_edit_url
 

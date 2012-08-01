@@ -1,0 +1,24 @@
+<h1>Pollster</h1>
+<h2>Polls</h2>
+<p>Click on a poll to take it</p>
+<table>
+  <tr>
+    <th>Polls</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @polls.each do |poll| %>
+<tr>
+  <td><%= link_to poll.name, poll_path("#{poll.edit_url}") %>
+
+</tr>
+<% end %>
+
+</table>
+
+
+<p>Create a poll!
+    <%= button_to "Create Poll", new_poll_path %> </p>
+
